@@ -6,9 +6,7 @@ SET @text = LTRIM(RTRIM(@text));
 SET @text = ISNULL(@text,'');
 
     INSERT INTO @Result(Id)
-    SELECT CAST(value AS BIGINT) AS ShomareSefaresh
-    FROM STRING_SPLIT(@text, ',')
-    WHERE value <> '';
+    SELECT CAST(value AS BIGINT) FROM STRING_SPLIT(@text, ',') WHERE value <> '';
 
     RETURN;
 END;
